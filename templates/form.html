@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valuation Form | ZenCarResell</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Custom scrollbar for dark mode dropdowns */
+        select option {
+            background-color: #1e293b;
+            color: #f1f5f9;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300 font-sans antialiased">
+
+    <nav class="fixed w-full z-50 glass border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="/"Resell
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="/" class="text-slate-300 hover:bg-slate-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">Home</a>
+                        <a href="/form" class="bg-slate-800 text-white px-3 py-2 rounded-md text-sm font-medium border border-slate-700 transition">Valuation Form</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 min-h-screen">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="mb-10 text-center">
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">Vehicle Details</h1>
+                <p class="text-slate-400">Enter your car's specifications to get an AI-powered valuation.</p>
+            </div>
+
+            {% if price %}
+            <div class="mb-10 p-8 glass rounded-2xl text-center border border-emerald-500/30 bg-emerald-500/10 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
+                <h3 class="text-xl text-slate-300 mb-2">Estimated Resale Value</h3>
+                <p class="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-400">
+                    NPR {{ price }}
+                </p>
+            </div>
+            {% endif %}
+
+            <form action="/predict" method="POST" class="glass rounded-2xl p-6 sm:p-10 shadow-2xl">
+                
+                <h2 class="text-xl font-semibold text-white mb-6 border-b border-slate-700 pb-2">1. Core Identity</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                    
+                    <div>
+                        <label for="brand" class="block text-sm font-medium text-slate-400 mb-2">Car Brand</label>
+                        <select id="brand" name="brand" required class="block w-full rounded-lg border-0 bg-slate-800/50 py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-slate-700 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm outline-none transition">
+                            <option value="" disabled selected>Select Brand</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <option value="Tata">Tata</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Maruti">Maruti</option>
+                            <option value="Mahindra">Mahindra</option>
+                            <option value="Fiat">Fiat</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                            <option value="Renault">Renault</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                            <option value="Skoda">Skoda</option>
+                            <option value="Datsun">Datsun</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Mitsubishi">Mitsubishi</option>
+                            <option value="Peugeot">Peugeot</option>
+                            <option value="MG">MG</option>
+                            <option value="Isuzu">Isuzu</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Mercedes-Benz">Mercedes-Benz</option>
+                            <option value="Audi">Audi</option>
+                            <option value="Jeep">Jeep</option>
+                            <option value="Force">Force</option>
+                            <option value="Opel">Opel</option>
+                            <option value="Jaguar">Jaguar</option>
+                            <option value="Ambassador">Ambassador</option>
+                            <option value="Land">Land</option>
+                            <option value="Volvo">Volvo</option>
+                            <option value="Kia">Kia</option>
+                            <option value="Ashok">Ashok</option>
+                            <option value="Daewoo">Daewoo</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="model" class="block text-sm font-medium text-slate-400 mb-2">Model Name</label>
+                        <select id="model" name="model" required class="block w-full rounded-lg border-0 bg-slate-800/50 py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-slate-700 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm outline-none transition">
+                            <option value="" disabled selected>Select Model</option>
+                            <option value="Swift Dzire VDI">Swift Dzire VDI</option>
+                            <option value="Alto K10 VXI">Alto K10 VXI</option>
+                            <option value="Alto LXi">Alto LXi</option>
+                            <option value="Alto 800 LXI">Alto 800 LXI</option>
+                            <option value="Alto LX">Alto LX</option>
+                            <option value="XUV500 W6 2WD">XUV500 W6 2WD</option>
+                            <option value="Verna 1.6 SX">Verna 1.6 SX</option>
+                            <option value="EON Era Plus">EON Era Plus</option>
+                            <option value="Wagon R VXI BS IV">Wagon R VXI BS IV</option>
+                            <option value="i10 Magna">i10 Magna</option>
+                            <option value="Figo Diesel Titanium">Figo Diesel Titanium</option>
+                            <option value="Swift Dzire VXI">Swift Dzire VXI</option>
+                            <option value="Ritz VDi">Ritz VDi</option>
+                            <option value="Vento Diesel Highline">Vento Diesel Highline</option>
+                            <option value="EON Magna Plus">EON Magna Plus</option>
+                            <option value="Ertiga VDI">Ertiga VDI</option>
+                            <option value="Alto K10 2010-2014 VXI">Alto K10 2010-2014 VXI</option>
+                            <option value="Swift VDI BSIV">Swift VDI BSIV</option>
+                            <option value="Grand i10 Sportz">Grand i10 Sportz</option>
+                            <option value="i10 Sportz">i10 Sportz</option>
+                            <option value="Swift Dzire VDi">Swift Dzire VDi</option>
+                            <option value="Alto 800 VXI">Alto 800 VXI</option>
+                            <option value="KWID RXT">KWID RXT</option>
+                            <option value="Swift VDI">Swift VDI</option>
+                            <option value="Wagon R LXI Minor">Wagon R LXI Minor</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="year" class="block text-sm font-medium text-slate-400 mb-2">Year of Manufacture</label>
+                        <input type="number" id="year" name="year" placeholder="e.g., 2018" min="1990" max="2026" required class="block w-full rounded-lg border-0 bg-slate-800/50 py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-slate-700 placeholder:text-slate-500 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm outline-none transition">
+                    </div>
+                </div>
+
+                <h2 class="text-xl font-semibold text-white mb-6 border-b border-slate-700 pb-2">2. Engine & Specifications</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                    
+                    <div>
+                        <label for="engine" class="block text-sm font-medium text-slate-400 mb-2">Engine (CC)</label>
+                        <input type="number" step="0.1" id="engine" name="engine" placeholder="e.g., 1197" required class="block w-full rounded-lg border-0 bg-slate-800/50 py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-slate-700 placeholder:text-slate-500 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm outline-none transition">
+                    </div>
+
+                    <div>
+                        <label for="max_power" class="block text-sm font-medium text-slate-400 mb-2">Max Power (bhp)</label>
+                        <input type="number" step="0.1" id="max_power" name="max_power" placeholder="e.g., 81.8" required class="block w-full rounded-lg border-0 bg-slate-800/50 py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-slate-700 placeholder:text-slate-500 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm outline-none transition">
+                    </div>
+
+                    <div>
+                        <label for="mileage" class="block text-sm font-medium text-slate-400 mb-2">Mileage (kmpl)</label>
+                        <input type="number" step="0.1" id="mileage" name="mileage" placeholder="e.g., 21.4" required class="block w-full rounded-lg border-0 bg-slate-800/50 py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-slate-700 placeholder:text-slate-500 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm outline-none transition">
+                    </div>
+
+                    <div>
+                        <label for="fuel" class="block text-sm font-medium text-slate-400 mb-2">Fuel Type</label>
+                        <select id="fuel" name="fuel" required class="block w-full rounded-lg border-0 bg-slate-800/50 py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-slate-700 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm outline-none transition">
+                            <option value="" disabled selected>Select Fuel</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="Petrol">Petrol</option>
+                            <option value="CNG">CNG</option>
+                            <option value="LPG">LPG</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="transmission" class="block text-sm font-medium text-slate-400 mb-2">Transmission</label>
+                        <select id="transmission" name="transmission" required class="block w-full rounded-lg border-0 bg-slate-800/50 py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-slate-700 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm outline-none transition">
+                            <option value="" disabled selected>Select Transmission</option>
+                            <option value="Manual">Manual</option>
+                            <option value="Automatic">Automatic</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="seats" class="block text-sm font-medium text-slate-400 mb-2">Seats</label>
+                        <select id="seats" name="seats" required class="block w-full rounded-lg border-0 bg-slate-800/50 py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-slate-700 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm outline-none transition">
+                            <option value="" disabled selected>Select Seats</option>
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="14">14</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h2 class="text-xl font-semibold text-white mb-6 border-b border-slate-700 pb-2">3. Usage & Seller Information</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                    
+                    <div>
+                        <label for="km_driven" class="block text-sm font-medium text-slate-400 mb-2">Kilometers Driven</label>
+                        <input type="number" id="km_driven" name="km_driven" placeholder="e.g., 50000" required class="block w-full rounded-lg border-0 bg-slate-800/50 py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-slate-700 placeholder:text-slate-500 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm outline-none transition">
+                    </div>
+
+                    <div>
+                        <label for="owner" class="block text-sm font-medium text-slate-400 mb-2">Owner History</label>
+                        <select id="owner" name="owner" required class="block w-full rounded-lg border-0 bg-slate-800/50 py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-slate-700 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm outline-none transition">
+                            <option value="" disabled selected>Select Owner History</option>
+                            <option value="First Owner">First Owner</option>
+                            <option value="Second Owner">Second Owner</option>
+                            <option value="Third Owner">Third Owner</option>
+                            <option value="Fourth & Above Owner">Fourth & Above Owner</option>
+                            <option value="Test Drive Car">Test Drive Car</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="seller_type" class="block text-sm font-medium text-slate-400 mb-2">Seller Type</label>
+                        <select id="seller_type" name="seller_type" required class="block w-full rounded-lg border-0 bg-slate-800/50 py-3 px-4 text-white shadow-sm ring-1 ring-inset ring-slate-700 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm outline-none transition">
+                            <option value="" disabled selected>Select Seller Type</option>
+                            <option value="Individual">Individual</option>
+                            <option value="Dealer">Dealer</option>
+                            <option value="Trustmark Dealer">Trustmark Dealer</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-700">
+                    <button type="submit" class="w-full flex justify-center py-4 px-4 border border-transparent rounded-lg shadow-[0_0_15px_rgba(37,99,235,0.3)] text-lg font-medium text-white bg-blue-600 hover:bg-blue-500 hover:shadow-[0_0_25px_rgba(37,99,235,0.6)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-blue-500 transition-all duration-300">
+                        Predict Resale Value
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 border-t border-slate-800 py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-slate-500 text-sm mb-4 md:mb-0">
+                &copy; 2026 ZenCarResell. Kathmandu, Bagmati Province. All rights reserved.
+            </p>
+            <div class="flex space-x-6 text-sm text-slate-500">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Terms of Service</a>
+                <a href="#" class="hover:text-white transition">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
