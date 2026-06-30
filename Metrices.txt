@@ -1,0 +1,21 @@
+Epoch 50/450 | Loss: 0.0753
+Epoch 100/450 | Loss: 0.0672
+Epoch 150/450 | Loss: 0.0643
+Epoch 200/450 | Loss: 0.0632
+Epoch 250/450 | Loss: 0.0625
+Epoch 300/450 | Loss: 0.0622
+Epoch 350/450 | Loss: 0.0618
+Epoch 400/450 | Loss: 0.0616
+Epoch 450/450 | Loss: 0.0615
+
+MODEL PERFORMANCE
+---------------------
+R2 : 0.867
+MAE: 184264.5
+MSE: 82492636692.72
+MAPE: 19.15 %
+
+Predicted Price: 2015464
+
+Train R2: 0.8459571411296324
+Test R2 : 0.866958077078426
